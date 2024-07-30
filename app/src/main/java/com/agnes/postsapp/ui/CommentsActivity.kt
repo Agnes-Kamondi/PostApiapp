@@ -2,6 +2,7 @@ package com.agnes.postsapp.ui
 
 import com.agnes.postsapp.api.ApiClient
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,11 +16,13 @@ import retrofit2.Response
 
 class CommentsActivity : AppCompatActivity() {
     private var postId = 0
+    val TAG = "MYTAG"
     private lateinit var binding: ActivityCommentsBinding
     private lateinit var commentsAdapter: CommentsAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d(TAG, "COMMENTSACTIVITY ONCREATE")
         binding = ActivityCommentsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -33,6 +36,31 @@ class CommentsActivity : AppCompatActivity() {
         setupRecyclerView()
     }
 
+    override fun onStart() {
+        super.onStart()
+        Log.d(TAG, "COMMENTSACTIVITY ONSTART")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d(TAG, "COMMENTSACTIVITY ONRESUME")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d(TAG, "COMMENTSACTIVITY ONPAUSE")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d(TAG, "COMMENTSACTIVITY ONSTOP")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d(TAG, "COMMENTSACTIVITY ONDESTROY")
+    }
+
     private fun setupRecyclerView() {
         commentsAdapter = CommentsAdapter(emptyList())
         binding.rvComments.layoutManager = LinearLayoutManager(this)
@@ -40,7 +68,7 @@ class CommentsActivity : AppCompatActivity() {
     }
 
     fun fetchPost(postId: Int) {
-        val apiClient = ApiClient.buildApiInterface(PostsApiInterface::class.java)
+        val apiClient = ApiClient.buildApiClient(PostsApiInterface::class.java)
         val request = apiClient.fetchPostById(postId)
 
         request.enqueue(object : Callback<Post> {
@@ -61,7 +89,7 @@ class CommentsActivity : AppCompatActivity() {
     }
 
     private fun fetchCommentsByPostId(postId: Int) {
-        val apiClient = ApiClient.buildApiInterface(PostsApiInterface::class.java)
+        val apiClient = ApiClient.buildApiClient(PostsApiInterface::class.java)
         val request = apiClient.fetchCommentsByPostId(postId)
 
         request.enqueue(object : Callback<List<Comment>> {

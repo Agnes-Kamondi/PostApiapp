@@ -1,4 +1,4 @@
-package com.agnes.postsapp
+package com.agnes.postsapp.model
 
 data class Post(
     var userId : Int,

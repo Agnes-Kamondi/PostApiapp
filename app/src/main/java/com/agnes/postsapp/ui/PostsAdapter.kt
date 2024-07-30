@@ -1,11 +1,11 @@
-package com.agnes.postsapp
+package com.agnes.postsapp.ui
 
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.agnes.postsapp.databinding.CommentsListItemBinding
+import com.agnes.postsapp.model.Post
 import com.agnes.postsapp.databinding.PostsListItemBinding
 
 class PostsAdapter(var postsList: List<Post>, val context: Context): RecyclerView.Adapter<PostsViewVolder>() {

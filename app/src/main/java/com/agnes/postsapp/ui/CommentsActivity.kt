@@ -1,10 +1,13 @@
-package com.agnes.postsapp
+package com.agnes.postsapp.ui
 
-import ApiClient
+import com.agnes.postsapp.api.ApiClient
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.agnes.postsapp.model.Comment
+import com.agnes.postsapp.model.Post
+import com.agnes.postsapp.api.PostsApiInterface
 import com.agnes.postsapp.databinding.ActivityCommentsBinding
 import retrofit2.Call
 import retrofit2.Callback

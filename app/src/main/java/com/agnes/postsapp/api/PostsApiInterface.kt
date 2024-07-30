@@ -1,5 +1,7 @@
-package com.agnes.postsapp
+package com.agnes.postsapp.api
 
+import com.agnes.postsapp.model.Comment
+import com.agnes.postsapp.model.Post
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path

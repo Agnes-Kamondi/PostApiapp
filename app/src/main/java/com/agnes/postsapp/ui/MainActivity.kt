@@ -1,13 +1,13 @@
-package com.agnes.postsapp
+package com.agnes.postsapp.ui
 
-import ApiClient
+import com.agnes.postsapp.api.ApiClient
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.agnes.postsapp.model.Post
+import com.agnes.postsapp.api.PostsApiInterface
 import com.agnes.postsapp.databinding.ActivityMainBinding
 import retrofit2.Call
 import retrofit2.Callback

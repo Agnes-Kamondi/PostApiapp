@@ -1,5 +1,6 @@
 package com.agnes.postsapp.ui
 
+import android.content.Intent
 import com.agnes.postsapp.api.ApiClient
 import android.os.Bundle
 import android.util.Log
@@ -42,6 +43,9 @@ class MainActivity : AppCompatActivity() {
         postsViewModel.errorLiveData.observe(this, Observer { error ->
             Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
         })
+        binding.fabAddPost.setOnClickListener {
+            startActivity(Intent(this,CreatePostActivity::class.java))
+        }
     }
 
     override fun onStart() {

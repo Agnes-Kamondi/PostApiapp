@@ -17,6 +17,7 @@ class CommentsAdapter(var commentsList: List<Comment>) : RecyclerView.Adapter<Co
     override fun onBindViewHolder(holder: CommentsViewHolder, position: Int) {
         val comment = commentsList[position]
         holder.binding.tvName.text = comment.name
+        holder.binding.tvEmail.text = comment.email
         holder.binding.tvComment.text = comment.body
     }
 
